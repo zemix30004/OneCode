@@ -28,16 +28,20 @@ use Illuminate\Database\Connectors\PostgresConnector;
 Route::view('/', 'welcome')->name('home');
 Route::redirect('/home', '/')->name('home.redirect');
 
-Route::get('/test', TestController::class)->name('test');
+Route::get('/test', TestController::class)->name('test')->middleware('token:secret');
 
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::post('register', [RegisterController::class, 'store'])->name('register.store');
+Route::middleware('guest')->group(function () {
 
-Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::post('login', [LoginController::class, 'store'])->name('login.store');
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::post('register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('login/{user}/confirmation', [LoginController::class, 'confirmation'])->name('login.confirmation');
-Route::post('login/{user}/confirm', [LoginController::class, 'confirm'])->name('login.confirm');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'store'])->name('login.store');
+});
+
+
+// Route::get('login/{user}/confirmation', [LoginController::class, 'confirmation'])->name('login.confirmation');
+// Route::post('login/{user}/confirm', [LoginController::class, 'confirm'])->name('login.confirm');
 
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
 Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');

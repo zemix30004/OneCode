@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('token')->only('index');
+    //     $this->middleware('token2')->only('store');
+    // }
+
     public function index()
     {
         return 'Страница списка постов';
