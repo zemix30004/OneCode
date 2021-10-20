@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Posts\CommentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -39,35 +40,10 @@ Route::get('login/{user}/confirmation', [LoginController::class, 'confirmation']
 Route::post('login/{user}/confirm', [LoginController::class, 'confirm'])->name('login.confirm');
 
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
-Route::post('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('blog/{post}/like', [BlogController::class, 'like'])->name('blog.like');
 
 // Route::resource('user', UserController::class);
-Route::prefix('user')->group(function () {
-
-    Route::get('posts', [PostController::class, 'index'])->name('user.posts');
-    Route::get('posts/create', [PostController::class, 'create'])->name('user.posts.create');
-    Route::post('posts', [PostController::class, 'store'])->name('user.posts.store');
-    Route::get('posts/{post}', [PostController::class, 'show'])->name('user.posts.show');
-    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('user.posts.edit');
-    Route::put('posts/{post}', [PostController::class, 'update'])->name('user.posts.update');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->name('user.posts.delete');
-    Route::put('posts/{post}/like', [PostController::class, 'like'])->name('user.posts.like');
-});
-
-Route::prefix('admin')->group(function () {
-
-    Route::get('posts', [PostController::class, 'index'])->name('admin.posts');
-    Route::get('posts/create', [PostController::class, 'create'])->name('admin.posts.create');
-    Route::post('posts', [PostController::class, 'store'])->name('admin.posts.store');
-    Route::get('posts/{post}', [PostController::class, 'show'])->name('admin.posts.show');
-    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
-    Route::put('posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->name('admin.posts.delete');
-    Route::put('posts/{post}/like', [PostController::class, 'like'])->name('admin.posts.like');
-});
-
-
 
 Route::resource('posts/{post}/comments', CommentController::class);
 Route::resource('posts/{post}/comments', CommentController::class)->only(['index', 'show']); //исключить//
