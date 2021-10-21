@@ -21,12 +21,12 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a href="{{ route('register') }}" class="nav-link" aria-current="page" >
+                    <a href="{{ route('register') }}" class="nav-link {{  Route::is('register') ? 'active' : '' }}" aria-current="page" >
                         {{ __('Регистрация') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link" aria-current="page" >
+                    <a href="{{ route('login') }}" class="nav-link {{  Route::is('login') ? 'active' : '' }}" aria-current="page" >
                         {{ __('Войти') }}
                     </a>
                 </li>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"/>
     <style>
         .container {max-width: 720px;}
-        .required:after { content: '*'; color: red; margin-left: 3px;}
+        .required:after { content: '*'; color: red;}
     </style>
     <title>@yield('page.title', config('app.name'))</title>
 </head>

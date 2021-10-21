@@ -14,4 +14,9 @@ class LoginController extends Controller
         // return view()->make('login.index'); //3 способ
         // return View::make('login.index'); //4 способ через фасад View
     }
+
+    public function store()
+    {
+        return 'Залогинился';
+    }
 }
