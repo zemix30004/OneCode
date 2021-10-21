@@ -1,4 +1,6 @@
 {{-- {{ dd($attributes) }}; --}}
 <form {{  $attributes }}>
-    {{ $slot }}
+
+    @csrf {{ $slot }}
+
 </form>

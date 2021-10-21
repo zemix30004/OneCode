@@ -3,11 +3,11 @@
 @section('page.title', 'Наш блог')
 
 @section('content')
+
+
     <h1 class="mb-5">
         Список постов
     </h1>
-
-
         {{-- @json($posts)          //Вывод всех постов posts
         @foreach ($posts as $post )
         <div>{{ $post }}</div>

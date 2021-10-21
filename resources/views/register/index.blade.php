@@ -10,12 +10,19 @@
                 <x-card-title>
                 {{ __('Регистрация') }}
                 </x-card-title>
+                <x-slot name="right">
+                    <a href="{{ route('login') }}">
+                        {{ __('Вход') }}
+                    </a>
+                </x-slot>
             {{-- </h4> --}}
         {{-- </div> --}}
     </x-card-header>
     {{-- <div class="card-body"> --}}
     <x-card-body>
-        <x-form action="{{ route(('login.store')) }}" method="POST">
+        <x-form action="{{ route(('register.store')) }}" method="POST">
+            {{-- {{ csrf_field() }} --}}
+            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             <x-form-item>
                 {{-- <label class="required">{{ __('Email') }}</label> --}}
                 <x-label required>{{ __('Имя') }}</x-label>

@@ -10,4 +10,8 @@ class RegisterController extends Controller
     {
         return view('register.index');
     }
+    public function store()
+    {
+        return "Запрос на регистрацию";
+    }
 }
