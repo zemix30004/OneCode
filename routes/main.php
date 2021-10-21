@@ -25,7 +25,8 @@ use Illuminate\Database\Connectors\PostgresConnector;
 //     return view('welcome');
 // });
 // Route::redirect('/iii', '/');
-Route::view('/', 'welcome')->name('home');
+// Route::view('/', 'welcome')->name('home');
+Route::view('/', 'home.index')->name('home');
 Route::redirect('/home', '/')->name('home.redirect');
 
 Route::get('/test', TestController::class)->name('test')->middleware('token:secret');
