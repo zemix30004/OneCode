@@ -31,6 +31,7 @@ class BlogController extends Controller
             'title' => 'Lorem ipsum dolor sit amet',
             'content' => 'Lorem ipsum,<strong>Dolar</strong>  sit amet consectetur adipisicing elit. Fugiat, impedit',
         ];
+        $posts = array_fill(0, 10, $post);
         // return Route::is('blog*') ? 'yes' : 'no';
         return view('blog.show', compact('post'));
     }
