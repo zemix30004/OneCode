@@ -1,9 +1,7 @@
-@props(['name'=> ''])
 
-<input id="{{ $name }}" type="hidden" name="{{ $name }}">
+<input type="hidden" {{ $attributes }} id="{{ $name }}">
 <trix-editor input="{{ $name }}"></trix-editor>
 
-@endsection
 
 @push('css')
 <link rel="stylesheet" href="/css/trix.css">
