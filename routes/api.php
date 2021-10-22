@@ -19,13 +19,8 @@
 // });
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\Api\PostController;
-use App\Http\Controllers\Posts\CommentController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\BlogController;
-use Illuminate\Database\Connectors\PostgresConnector;
+
 
 Route::get('posts', [PostController::class, 'index'])->name('posts');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');

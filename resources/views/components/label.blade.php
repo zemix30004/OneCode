@@ -1,6 +1,6 @@
 @props(['required' => false])
 <label {{ $attributes->class([
-    'mb-2', ($required ? 'required' : ''),
+    'mb-1', ($required ? 'required' : ''),
 ])}}>
     {{ $slot }}
 </label>

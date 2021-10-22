@@ -2,13 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Posts\CommentController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\BlogController;
-use Illuminate\Database\Connectors\PostgresConnector;
+
 
 Route::prefix('admin')->middleware('auth', 'active', 'admin')->group(function () {
 

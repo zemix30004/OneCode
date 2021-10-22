@@ -1,3 +1,5 @@
+{{-- @php($id = Str::uuid()) --}}
+
 <div class="form-check">
 <input  type="checkbox" {{ $attributes->merge([
     'value'=>"1",

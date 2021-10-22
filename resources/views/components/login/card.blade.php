@@ -1,6 +1,6 @@
-    <div class="card mb-3">
+    {{-- <div class="card mb-3">
         {{ $slot }}
-    </div>
+    </div> --}}
 <x-card>
     <x-card-header>
         {{-- <div class="card-body"> --}}

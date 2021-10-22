@@ -47,7 +47,7 @@
                 </x-form-item>
                 <x-form-item>
                 {{-- <div class="form-check"> --}}
-            <x-checkbox name="remember">
+            <x-checkbox name="agreement" :checked="!! request()->old('agreement')">
                 {{ __('Я согласен на обработку пользовательских данных') }}
             </x-checkbox>
                 {{-- </div> --}}

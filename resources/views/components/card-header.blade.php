@@ -3,7 +3,7 @@
         <div>
             {{ $slot }}
         </div>
-        @isset( $right )
+        @isset($right)
         <div>
             {{ $right }}
         </div>
