@@ -1,13 +1,13 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 @section('page.title', 'Наш блог')
 
-@section('content')
+@section('main.content')
 
+        <x-title>
+            {{ __('Список постов') }}
+        </x-title>
 
-    <h1 class="mb-5">
-        Список постов
-    </h1>
         {{-- @json($posts)          //Вывод всех постов posts
         @foreach ($posts as $post )
         <div>{{ $post }}</div>
@@ -15,21 +15,17 @@
         @endforeach --}}
 
         @if(empty($posts))
-        Нет ни одного поста
+        {{ __('Нет ни одного поста.') }}
         @else
-        @foreach ($posts as $post )
-        <div class="mb-4">
-            <h5>
-                <a href="{{ route('blog.show', '$post->id') }}">
-                    {{ $post->title }}
-                </a>
-        </h5>
-        <p>
-            {{!!$post->content!!}}
-        </p>
-        </div>
-        @endforeach
+            <div class="row">
+                @foreach ($posts as $post )
+                    <div class="col-12 col-md-4">
+                        {{-- <div class="mb-4"> --}}
+                            <x-post.card :post="$post" />
+                        {{-- </div> --}}
+                    </div>
+                @endforeach
+            </div>
         @endif
-
-
 @endsection
+

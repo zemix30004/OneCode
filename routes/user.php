@@ -10,7 +10,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BlogController;
 use Illuminate\Database\Connectors\PostgresConnector;
 
-Route::prefix('user')->middleware('auth', 'active')->group(function () {
+// Route::prefix('user')->middleware('auth', 'active')->group(function () {
+Route::prefix('user')->group(function () {
 
     Route::redirect('/', '/user/posts')->name('user');
 

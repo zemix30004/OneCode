@@ -1,3 +1,6 @@
+    <div class="card mb-3">
+        {{ $slot }}
+    </div>
 <x-card>
     <x-card-header>
         {{-- <div class="card-body"> --}}
