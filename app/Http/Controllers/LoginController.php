@@ -15,8 +15,13 @@ class LoginController extends Controller
         // return View::make('login.index'); //4 способ через фасад View
     }
 
-    public function store()
+    public function store(Request $request)
+
     {
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $remember = $request->boolean('remember');
+        dd($email, $password, $remember);
         return 'Залогинился';
     }
 }

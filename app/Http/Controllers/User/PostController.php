@@ -24,8 +24,12 @@ class PostController extends Controller
         // return 'Страница создания поста';
         return view('user.posts.create');
     }
-    public function store()
+    public function store(Request $request)
     {
+
+        $title = $request->input('title');
+        $content = $request->input('content');
+        // dd($title, $content);
         return 'Запрос создания поста';
     }
     public function show($post)
@@ -48,8 +52,11 @@ class PostController extends Controller
         ];
         return view('user.posts.edit', compact('post'));
     }
-    public function update()
+    public function update(Request $request)
     {
+        $title = $request->input('title');
+        $content = $request->input('content');
+        dd($title, $content);
         return 'Запрос обновления поста';
     }
     public function delete()
