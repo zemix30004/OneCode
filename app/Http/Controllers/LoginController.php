@@ -7,8 +7,16 @@ use Illuminate\Support\Facades\View;
 
 class LoginController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        // $ip = $request->ip();
+        // $path = $request->path();
+        // $url = $request->url();
+        // $full = $request->fullUrl();
+        // dd($ip, $path, $url, $full);
+
+        // dd($request->is('logi*'));
+        dd($request->routeIs('logi*'));
         return view('login.index');  //1 способ
         // return app('view')->make('login.index');//2 способ
         // return view()->make('login.index'); //3 способ
@@ -18,6 +26,10 @@ class LoginController extends Controller
     public function store(Request $request)
 
     {
+        // $ip = $request->ip();
+        // $path = $request->path();
+        // $url = $request->url();
+        // dd($ip, $path, $url);
         $email = $request->input('email');
         $password = $request->input('password');
         $remember = $request->boolean('remember');
