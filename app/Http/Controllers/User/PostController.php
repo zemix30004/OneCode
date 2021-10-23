@@ -56,7 +56,7 @@ class PostController extends Controller
     {
         $title = $request->input('title');
         $content = $request->input('content');
-        dd($title, $content);
+        // dd($title, $content);
         return 'Запрос обновления поста';
     }
     public function delete()
