@@ -12,11 +12,11 @@ class RegisterController extends Controller
     }
     public function store(Request $request)     //1 способ
     {
-        $name = $request->input('name');
-        $email = $request->input('email');
+        // $name = $request->input('name');
+        // $email = $request->input('email');
         // $ = !! $request->input('agreement$');
-        $password = $request->input('password');
-        $agreement = $request->boolean('agreement');
+        // $password = $request->input('password');
+        // $agreement = $request->boolean('agreement');
         // dd($name, $email, $password, $agreement);
         // dd($name, $email, $, $avatar); //Получить  данные по запросу только по переменным name email aggreement$ (булевое значение от чекбокса)
         // dd($request->has('name'));    //Проверить есть ли параметр name в запросе да или нет

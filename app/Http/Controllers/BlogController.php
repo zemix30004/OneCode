@@ -47,14 +47,14 @@ class BlogController extends Controller
         // ]);
         return view('blog.index', compact('posts', 'categories'));  //2 способ передачи значений posts
     }
-    public function show($post)
+    public function show(Request $request, $post)
     {
         $post = (object) [
             'id' => 123,
             'title' => 'Lorem ipsum dolor sit amet',
             'content' => 'Lorem ipsum,<strong>Dolar</strong>  sit amet consectetur adipisicing elit. Fugiat, impedit',
         ];
-        $posts = array_fill(0, 10, $post);
+        // $posts = array_fill(0, 10, $post);
         // return Route::is('blog*') ? 'yes' : 'no';
         return view('blog.show', compact('post'));
     }

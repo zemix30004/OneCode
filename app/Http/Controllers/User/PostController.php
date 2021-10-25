@@ -30,6 +30,8 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
         // dd($title, $content);
+        session(['alert' => __('Добро пожаловать!')]);
+        // alert(__('Сохранено!'));
         return redirect()->route('user.posts.show', 123);
     }
     public function show($post)
@@ -56,6 +58,9 @@ class PostController extends Controller
     {
         $title = $request->input('title');
         $content = $request->input('content');
+
+        session(['alert' => __('Добро пожаловать!')]);
+        // alert(__('Сохранено!'));
         // dd($title, $content);
         // return redirect()->route('user.posts.show', $post);
         return redirect()->back();
