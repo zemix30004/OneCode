@@ -17,7 +17,7 @@ class RegisterController extends Controller
         // $ = !! $request->input('agreement$');
         $password = $request->input('password');
         $agreement = $request->boolean('agreement');
-        dd($name, $email, $password, $agreement);
+        // dd($name, $email, $password, $agreement);
         // dd($name, $email, $, $avatar); //Получить  данные по запросу только по переменным name email aggreement$ (булевое значение от чекбокса)
         // dd($request->has('name'));    //Проверить есть ли параметр name в запросе да или нет
         // dd($request->filled('name')); //Проверить  заполнен ли данными параметр name
@@ -26,6 +26,11 @@ class RegisterController extends Controller
         //dd(($request));             //2 способ запроса объекта на вывод
         //3способ dd(app()->make($request));
         //4способ dd(app('request'));
-        return "Запрос на регистрацию";
+        // return "Запрос на регистрацию";
+
+        if (true) {
+            return redirect()->back()->withInput();
+        }
+        return redirect()->route('user');
     }
 }

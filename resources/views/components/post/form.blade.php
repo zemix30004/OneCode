@@ -11,9 +11,11 @@
                 {{-- <x-textarea name="content" rows="10"></x-textarea> --}}
             <x-trix name="content" value="{{ $post->content ?? '' }}" />
         </x-form-item>
-        <x-button type="submit">
+
+        {{ $slot }}
+        {{-- <x-button type="submit">
             {{ __('Создать пост') }}
-        </x-button>
+        </x-button> --}}
     {{-- </x-post.form> --}}
 </x-form>
 

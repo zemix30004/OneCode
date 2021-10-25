@@ -28,7 +28,7 @@ use App\Http\Controllers\BlogController;
 Route::view('/', 'home.index')->name('home');
 Route::redirect('/home', '/')->name('home.redirect');
 
-Route::get('/test', TestController::class)->name('test')->middleware('token:secret');
+Route::get('/test', TestController::class)->name('test');
 
 Route::middleware('guest')->group(function () {
 
