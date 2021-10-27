@@ -14,7 +14,7 @@ Route::prefix('admin')->middleware('auth', 'active', 'admin')->group(function ()
     Route::post('posts', [PostController::class, 'store'])->name('admin.posts.store');
     Route::get('posts/{post}', [PostController::class, 'show'])->name('admin.posts.show');
     Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
-    Route::put('posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
+    Route::post('posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
     Route::delete('posts/{post}', [PostController::class, 'delete'])->name('admin.posts.delete');
     Route::put('posts/{post}/like', [PostController::class, 'like'])->name('admin.posts.like');
 });
