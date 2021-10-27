@@ -21,3 +21,4 @@
     </div>
     </div>
 
+    <x-errors />

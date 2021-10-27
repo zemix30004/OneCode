@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
 
+use App\Http\Controllers\Controller;
+use Dotenv\Exception\ValidationException;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException as ValidationValidationException;
+use League\Config\Exception\ValidationException as ExceptionValidationException;
 
 class PostController extends Controller
 {
@@ -24,14 +29,41 @@ class PostController extends Controller
         // return 'Страница создания поста';
         return view('user.posts.create');
     }
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
+        // $validated = $request->validated();
+        // $validated = validator($request->all(), [                   //1 способ валидации при помощи глобальной функции хелпера
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string', 'max:10000'],
+        // ])->validate();
 
-        $title = $request->input('title');
-        $content = $request->input('content');
-        // dd($title, $content);
-        session(['alert' => __('Добро пожаловать!')]);
-        // alert(__('Сохранено!'));
+        // CreatePost::run($request->all());
+
+        // $validated = $request->validate([                    //2 способ если валидация происходит внутри контроллера
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string', 'max:10000'],
+        // ]);
+        $validated = validate($request->all(), [                    //способ если валидация происходит внутри контроллера
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string', 'max:10000'],
+        ]);
+
+        // if (true) {
+        //     throw ValidationException::withMessages([
+        //         'account' =>  __('Недостаточно средств.'),
+        //     ]);
+
+        //     // return redirect()->back()->withInput()
+        //     //     ->with('message', __('Недостаточно средств.'));
+        // }
+
+
+        dd($validated);
+        // $title = $request->input('title');
+        // $content = $request->input('content');
+        // // dd($title, $content);
+        // session(['alert' => __('Добро пожаловать!')]);
+        alert(__('Сохранено!'));
         return redirect()->route('user.posts.show', 123);
     }
     public function show($post)
@@ -56,11 +88,17 @@ class PostController extends Controller
     }
     public function update(Request $request, $post)
     {
-        $title = $request->input('title');
-        $content = $request->input('content');
+        $validated = validate($request->all(), [                    //способ если валидация происходит внутри контроллера
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string', 'max:10000'],
+        ]);
 
-        session(['alert' => __('Добро пожаловать!')]);
-        // alert(__('Сохранено!'));
+        dd($validated);
+        // $title = $request->input('title');
+        // $content = $request->input('content');
+
+        // session(['alert' => __('Добро пожаловать!')]);
+        alert(__('Сохранено!'));
         // dd($title, $content);
         // return redirect()->route('user.posts.show', $post);
         return redirect()->back();
